@@ -5,97 +5,307 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#d9c8a5">
   <title>Baby Shower · Gael Santander Vallejo</title>
+  <meta name="description" content="Acompáñanos a celebrar la dulce espera de nuestro pequeño Gael Santander Vallejo.">
+
+  <!-- Google Fonts: Cormorant Garamond, Great Vibes, Outfit -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+  <!-- Floating Sparkles Background Canvas -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- The Beatles - Here Comes The Sun: hidden YouTube player (official video, streamed - not downloaded) -->
+  <div id="youtubePlayer" style="position:fixed; width:1px; height:1px; opacity:0; pointer-events:none; overflow:hidden; top:-9999px; left:-9999px;"></div>
+
+  <!-- The Beatles - Here Comes The Sun: Audio Control -->
+  <button class="audio-toggle" id="audioToggle" aria-label="Reproducir Here Comes The Sun - The Beatles" title="The Beatles - Here Comes The Sun">
+    <span class="audio-icon" id="audioIcon">🎵</span>
+    <span id="audioText">Here Comes The Sun</span>
+    <span class="audio-waves">
+      <span></span><span></span><span></span>
+    </span>
+  </button>
+
   <main>
-    <section class="cover" id="cover">
-      <div class="decor decor-1">✦</div>
-      <div class="decor decor-2">♡</div>
-      <div class="cover-content">
-        <p class="eyebrow">Una dulce sorpresa</p>
-        <h1>está por llegar...</h1>
-        <div class="envelope-wrap">
-          <div class="envelope" id="envelope">
-            <div class="flap"></div>
-            <div class="seal">♡</div>
-            <div class="letter">
-              <p class="small">BABY</p>
-              <p class="script">Shower</p>
-              <strong>Gael</strong>
-              <span>Santander Vallejo</span>
+    <!-- ==========================================
+         COVER & INTERACTIVE 3D ENVELOPE
+         ========================================== -->
+    <section class="cover-section" id="cover">
+
+      <!-- Decorative top leaf garland -->
+      <div class="cover-garland" aria-hidden="true">
+        <span class="g-leaf">🌿</span>
+        <span class="g-dot">✦</span>
+        <span class="g-leaf">🍃</span>
+        <span class="g-dot">♡</span>
+        <span class="g-star">✦</span>
+        <span class="g-dot">♡</span>
+        <span class="g-leaf">🍃</span>
+        <span class="g-dot">✦</span>
+        <span class="g-leaf">🌿</span>
+      </div>
+
+      <div class="cover-inner">
+
+        <!-- Badge top label -->
+        <div class="cover-badge">🧸 Baby Shower · 2026</div>
+
+        <p class="cover-eyebrow">Una dulce sorpresa</p>
+        <h1 class="cover-title">está por llegar...</h1>
+
+        <!-- Poetic Invitation Verse -->
+        <div class="cover-poem">
+          <p class="poem-line">Hay un pequeño corazón latiendo con amor,</p>
+          <p class="poem-line">manos diminutas llenas de ilusión.</p>
+          <p class="poem-line poem-highlight">Pronto llegará nuestro mayor regalo,</p>
+          <p class="poem-line">y queremos que estés para este momento tan especial.</p>
+          <div class="poem-signature">— Kevin &amp; Darlin 💛</div>
+        </div>
+
+        <!-- 3D Realistic Envelope -->
+        <div class="envelope-stage" id="envelopeStage" role="button" aria-label="Abrir sobre de invitación" tabindex="0">
+          <div class="envelope-wrapper">
+            <!-- Sliding Letter Inside -->
+            <div class="envelope-letter" id="envelopeLetter">
+              <div class="letter-border"></div>
+              <span class="letter-tag">INVITACIÓN ESPECIAL</span>
+              <p class="letter-script">Baby Shower</p>
+              <h2 class="letter-name">Gael</h2>
+              <p class="letter-sub">Santander Vallejo</p>
+              <div class="letter-date-badge">11 · OCTUBRE · 2026</div>
+            </div>
+
+            <!-- Envelope Pocket Folds -->
+            <div class="envelope-pocket"></div>
+            <div class="envelope-pocket-right"></div>
+
+            <!-- Top Triangular Flap -->
+            <div class="envelope-flap" id="envelopeFlap"></div>
+
+            <!-- Wax Seal & Ribbon -->
+            <div class="wax-seal" id="waxSeal">
+              <div class="wax-ribbon-gold"></div>
+              <div class="wax-disc">
+                <span class="wax-letter">G</span>
+              </div>
+              <div class="wax-subtext">Toca para abrir ✨</div>
             </div>
           </div>
         </div>
-        <p class="hint">Abre el sobre para descubrir la invitación</p>
-        <button class="open-btn" id="openBtn">♡ &nbsp; Abrir invitación &nbsp; ♡</button>
+
+        <button class="open-invite-btn" id="openBtn" aria-expanded="false">
+          <span class="btn-sparkle">✦</span>
+          <span id="openBtnText">Abrir invitación</span>
+          <span class="btn-sparkle">✦</span>
+        </button>
       </div>
     </section>
 
-    <section class="invitation" id="invitation">
-      <div class="card">
-        <p class="eyebrow">Con mucha ilusión te invitamos a celebrar</p>
-        <div class="bear">🧸</div>
-        <h2>Baby <span>Shower</span></h2>
-        <p class="intro">La llegada de nuestro pequeño</p>
-        <h3>Gael Santander Vallejo</h3>
-        <p class="parents">Kevin Santander &amp; Darlin Vallejo</p>
+    <!-- ==========================================
+         MAIN INVITATION CARD SECTION
+         ========================================== -->
+    <section class="invitation-section" id="invitation">
+      <article class="invitation-card">
+        <!-- Decorative Frames & Corners -->
+        <div class="card-frame"></div>
+        <div class="card-frame-inner"></div>
+        <span class="corner-ornament corner-tl">✦</span>
+        <span class="corner-ornament corner-tr">✦</span>
+        <span class="corner-ornament corner-bl">✦</span>
+        <span class="corner-ornament corner-br">✦</span>
 
-        <div class="date-grid">
-          <div><b>11</b><span>OCTUBRE</span></div>
-          <div class="divider"></div>
-          <div><b>2:00</b><span>PM</span></div>
+        <!-- Card Header -->
+        <p class="card-welcome">Con infinita alegría te invitamos a celebrar el</p>
+        <h2 class="card-main-title">
+          <span class="serif-part">BABY</span>
+          <span class="script-part">Shower</span>
+        </h2>
+
+        <!-- Beautiful Watercolor Bear Hero Artwork -->
+        <div class="hero-illustration-container">
+          <div class="hero-bear-frame">
+            <img src="assets/osito-gael.jpg" alt="Ilustración del osito de Gael" class="hero-bear-img" loading="eager">
+          </div>
         </div>
 
-        <p class="location-title">📍 Nos encontramos en</p>
-        <p class="location">Salón Comunal Chambú 2.ª Etapa</p>
-        <a class="map-btn" target="_blank" rel="noopener"
-           href="https://www.google.com/maps/search/?api=1&query=Salon+Comunal+Chambu+2+Etapa+Pasto+Narino">
-          Ver ubicación en Google Maps
-        </a>
+        <p class="baby-intro">La llegada de nuestro mayor regalo</p>
+        <h3 class="baby-name">Gael Santander Vallejo</h3>
+        <p class="parents-names">Kevin Santander &amp; Darlin Vallejo</p>
 
-        <div class="countdown-title">Falta muy poquito...</div>
-        <div class="countdown" id="countdown">
-          <div><b id="days">00</b><span>DÍAS</span></div>
-          <div><b id="hours">00</b><span>HORAS</span></div>
-          <div><b id="minutes">00</b><span>MIN</span></div>
-          <div><b id="seconds">00</b><span>SEG</span></div>
+        <div class="ornament-divider">✦ &nbsp; ♡ &nbsp; ✦</div>
+
+        <!-- Date & Time Showcase -->
+        <div class="event-details-box">
+          <div class="date-time-grid">
+            <div class="date-col">
+              <span class="big-num">11</span>
+              <span class="label">OCTUBRE · 2026</span>
+            </div>
+            <div class="details-divider"></div>
+            <div class="time-col">
+              <span class="big-num">2:00</span>
+              <span class="label">DE LA TARDE</span>
+            </div>
+          </div>
         </div>
 
-        <div class="ultrasound">
-          <p>Un pequeño vistazo de nuestro amor 💛</p>
-          <img class="invite-image" src="assets/invitacion-gael.png" alt="Diseño de la invitación de Gael">
+        <!-- Location Information -->
+        <div class="location-section">
+          <div class="location-badge">📍 Lugar de la celebración</div>
+          <h4 class="location-name">Salón Comunal Chambú 2.ª Etapa</h4>
+          <p class="location-city">Pasto, Nariño</p>
+
+          <div class="action-buttons-wrap">
+            <a class="btn-secondary" target="_blank" rel="noopener"
+               href="https://www.google.com/maps/search/?api=1&query=Salon+Comunal+Chambu+2+Etapa+Pasto+Narino">
+              <span>🗺️ Ver en Google Maps</span>
+            </a>
+            <a class="btn-secondary btn-calendar" target="_blank" rel="noopener"
+               href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Baby+Shower+Gael+Santander+Vallejo&dates=20261011T190000Z/20261011T230000Z&details=Celebraci%C3%B3n+del+Baby+Shower+de+nuestro+peque%C3%B1o+Gael+Santander+Vallejo.+Padres:+Kevin+Santander+%26+Darlin+Vallejo.&location=Salon+Comunal+Chambu+2+Etapa,+Pasto,+Narino">
+              <span>📅 Agendar en Calendario</span>
+            </a>
+          </div>
         </div>
 
-        <section class="ultrasounds" aria-label="Ecografías de Gael">
-          <p class="ultrasound-title">Ya te estamos esperando ✨</p>
-          <h4>Un pequeño vistazo de Gael</h4>
-          <div class="ultrasound-grid">
-            <figure>
-              <img src="assets/ecografia-1.jpg" alt="Ecografía de Gael" loading="lazy">
-            </figure>
-            <figure>
-              <img src="assets/ecografia-2.jpg" alt="Ecografía de Gael" loading="lazy">
-            </figure>
+        <!-- Countdown Timer -->
+        <div class="countdown-container">
+          <p class="countdown-heading">Falta muy poquito para conocerte...</p>
+          <div class="countdown-cards" id="countdown">
+            <div class="countdown-card">
+              <span class="countdown-number" id="days">00</span>
+              <span class="countdown-label">Días</span>
+            </div>
+            <div class="countdown-card">
+              <span class="countdown-number" id="hours">00</span>
+              <span class="countdown-label">Horas</span>
+            </div>
+            <div class="countdown-card">
+              <span class="countdown-number" id="minutes">00</span>
+              <span class="countdown-label">Min</span>
+            </div>
+            <div class="countdown-card">
+              <span class="countdown-number" id="seconds">00</span>
+              <span class="countdown-label">Seg</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ultrasounds Gallery (Keepsake Polaroids) -->
+        <section class="ultrasounds-section" aria-label="Ecografías de Gael">
+          <div class="ultrasounds-header">
+            <p class="ultrasound-script">Ya te estamos esperando ✨</p>
+            <h4 class="ultrasound-title">Primeros Vistazos de Gael</h4>
+            <p class="ultrasound-subtitle">Cada ecografía es un latido de amor antes de tenerte en nuestros brazos.</p>
+          </div>
+
+          <div class="ultrasound-keepsake-grid">
+            <!-- Keepsake 1 -->
+            <div class="keepsake-card" data-full="assets/ecografia-1.jpg" data-title="Primer Latido de Amor" data-desc="FHR 166 lpm · El sonido más hermoso del mundo">
+              <div class="card-pin"></div>
+              <div class="ultrasound-img-wrap">
+                <img src="assets/ecografia-1.jpg" alt="Primer latido y ecografía de Gael" loading="lazy">
+                <span class="zoom-overlay-hint">🔍 Toca para ampliar</span>
+              </div>
+              <div class="keepsake-info">
+                <span class="keepsake-tag">Recuerdo I</span>
+                <h5 class="keepsake-title">Primer Latido de Amor</h5>
+                <p class="keepsake-desc">FHR 166 lpm · Nuestro milagro creciendo</p>
+              </div>
+            </div>
+
+            <!-- Keepsake 2 -->
+            <div class="keepsake-card" data-full="assets/ecografia-2.jpg" data-title="Creciendo con Fuerza" data-desc="Semana 13 · 69.8 mm · Perfil angelical de Gael">
+              <div class="card-pin"></div>
+              <div class="ultrasound-img-wrap">
+                <img src="assets/ecografia-2.jpg" alt="Ecografía de 13 semanas de Gael" loading="lazy">
+                <span class="zoom-overlay-hint">🔍 Toca para ampliar</span>
+              </div>
+              <div class="keepsake-info">
+                <span class="keepsake-tag">Recuerdo II</span>
+                <h5 class="keepsake-title">Creciendo con Fuerza</h5>
+                <p class="keepsake-desc">Semana 13 · Perfil de nuestro pequeño</p>
+              </div>
+            </div>
           </div>
         </section>
 
-        <div class="rsvp">
-          <h4>¿Nos acompañas?</h4>
-          <p>Confirma tu asistencia por WhatsApp.</p>
-          <a class="whatsapp" target="_blank" rel="noopener"
-             href="https://wa.me/573233724654?text=Hola%20Kevin%20y%20Darlin%2C%20confirmo%20mi%20asistencia%20al%20Baby%20Shower%20de%20Gael.%20%F0%9F%92%9B">
-            Confirmar asistencia
+        <!-- RSVP Confirmation -->
+        <!-- Dress Code Palette -->
+        <div class="dress-code-section">
+          <p class="dress-code-title">👗 Código de Vestimenta</p>
+          <p class="dress-code-subtitle">Tonos suaves y elegantes, por favor</p>
+          <div class="dress-palette">
+            <div class="swatch-item">
+              <div class="palette-swatch" style="background:#8fa882;"></div>
+              <span class="swatch-label">Salvia</span>
+            </div>
+            <div class="swatch-item">
+              <div class="palette-swatch" style="background:#c9b483;"></div>
+              <span class="swatch-label">Dorado</span>
+            </div>
+            <div class="swatch-item">
+              <div class="palette-swatch" style="background:#f5edda;"></div>
+              <span class="swatch-label">Crema</span>
+            </div>
+            <div class="swatch-item">
+              <div class="palette-swatch" style="background:#d6c9b0;"></div>
+              <span class="swatch-label">Arena</span>
+            </div>
+            <div class="swatch-item">
+              <div class="palette-swatch" style="background:#ffffff; border: 1.5px solid #ddd;"></div>
+              <span class="swatch-label">Blanco</span>
+            </div>
+          </div>
+          <p class="dress-note">✨ Evitar negro o colores muy oscuros — ¡queremos un ambiente luminoso y cálido!</p>
+        </div>
+
+        <div class="rsvp-box">
+          <h4 class="rsvp-title">¿Nos acompañas?</h4>
+          <p class="rsvp-text">Tu presencia llenará de felicidad y amor este día tan esperado. Confirma tu asistencia por WhatsApp.</p>
+          <a class="whatsapp-rsvp-btn" target="_blank" rel="noopener"
+             href="https://wa.me/573233724654?text=Hola%20Kevin%20y%20Darlin%2C%20confirmo%20con%20mucha%20alegr%C3%ADa%20mi%20asistencia%20al%20Baby%20Shower%20de%20Gael.%20%E2%9D%A4%EF%B8%8F">
+            <svg class="whatsapp-icon" viewBox="0 0 24 24">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.974.551 1.769.813 2.796.813h.005c3.18 0 5.767-2.586 5.768-5.766 0-1.54-.599-2.989-1.688-4.079-1.09-1.089-2.54-1.689-4.085-1.689zm7.151 1.782c1.439 1.44 2.232 3.355 2.232 5.393 0 4.201-3.419 7.62-7.623 7.62-.003 0-.006 0-.009 0-1.328 0-2.484-.343-3.535-.964l-4.996 1.309 1.332-4.865c-.71-1.229-1.084-2.457-1.084-3.72 0-4.202 3.419-7.62 7.623-7.62 2.037 0 3.953.793 5.392 2.232zm-3.649 7.848c-.244-.122-1.443-.712-1.667-.793-.224-.082-.387-.122-.55.122-.163.245-.633.794-.775.957-.143.163-.285.184-.53.061-.244-.122-1.031-.38-1.964-1.212-.725-.647-1.215-1.446-1.357-1.691-.143-.245-.015-.377.107-.499.111-.11.244-.286.367-.428.122-.143.163-.245.244-.408.082-.163.041-.306-.02-.429-.061-.122-.55-1.325-.754-1.815-.198-.478-.4-.413-.55-.421l-.469-.008c-.163 0-.428.061-.652.306-.224.245-.856.837-.856 2.041 0 1.204.877 2.367.999 2.53.122.164 1.724 2.632 4.177 3.691.583.252 1.038.403 1.393.516.586.186 1.119.16 1.541.097.471-.07 1.443-.591 1.647-1.162.204-.571.204-1.06.143-1.162-.061-.102-.224-.163-.468-.286z"/>
+            </svg>
+            <span>Confirmar asistencia</span>
           </a>
         </div>
 
-        <p class="closing">Gracias por acompañarnos en este momento tan especial. ✨</p>
-      </div>
+        <p class="card-closing">Gracias por acompañarnos en este momento tan especial. ✨</p>
+        <p class="card-signature">Kevin &amp; Darlin</p>
+
+        <div class="bottom-close-wrap">
+          <button class="bottom-close-btn" id="bottomCloseBtn" aria-label="Cerrar invitación y volver al inicio">
+            <span>▲ Cerrar invitación</span>
+          </button>
+        </div>
+      </article>
     </section>
   </main>
+
+  <!-- ==========================================
+       FULLSCREEN LIGHTBOX MODAL FOR ULTRASOUNDS
+       ========================================== -->
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar vista">&times;</button>
+      <img src="" alt="" class="lightbox-img" id="lightboxImg">
+      <div class="lightbox-caption">
+        <h4 id="lightboxTitle">Título</h4>
+        <p id="lightboxDesc">Descripción</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Share Button -->
+  <button class="share-floating-btn" id="shareBtn" aria-label="Compartir invitación">🔗</button>
+  <div class="share-tooltip" id="shareTooltip">¡Enlace copiado! Comparte la invitación 💛</div>
+
   <script src="script.js"></script>
 </body>
 </html>
