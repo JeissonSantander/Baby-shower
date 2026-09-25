@@ -1,54 +1,27 @@
-// ===============================
-// CONFIGURACIÓN DE LA INVITACIÓN
-// ===============================
-// Cambia esta fecha por la fecha real del Baby Shower.
-// Formato: AAAA-MM-DDTHH:MM:SS
-const eventDate = new Date("2026-10-25T16:00:00");
-
-const openButton = document.getElementById("openInvite");
+const target = new Date("2026-10-11T14:00:00-05:00").getTime();
+const envelope = document.getElementById("envelope");
+const openBtn = document.getElementById("openBtn");
 const invitation = document.getElementById("invitation");
 
-openButton.addEventListener("click", () => {
-  invitation.classList.remove("hidden");
+openBtn.addEventListener("click", () => {
+  envelope.classList.add("open");
   setTimeout(() => {
-    invitation.scrollIntoView({ behavior: "smooth" });
-    observeSections();
-  }, 80);
+    invitation.classList.add("show");
+    invitation.scrollIntoView({behavior:"smooth"});
+  }, 650);
 });
 
-function updateCountdown() {
-  const now = new Date();
-  const difference = eventDate - now;
-
-  const days = document.getElementById("days");
-  const hours = document.getElementById("hours");
-  const minutes = document.getElementById("minutes");
-  const seconds = document.getElementById("seconds");
-
-  if (difference <= 0) {
-    days.textContent = "00";
-    hours.textContent = "00";
-    minutes.textContent = "00";
-    seconds.textContent = "00";
-    return;
+function updateCountdown(){
+  const diff = target - Date.now();
+  const values = {
+    days: Math.max(0, Math.floor(diff / 86400000)),
+    hours: Math.max(0, Math.floor(diff / 3600000) % 24),
+    minutes: Math.max(0, Math.floor(diff / 60000) % 60),
+    seconds: Math.max(0, Math.floor(diff / 1000) % 60)
+  };
+  for(const [id,value] of Object.entries(values)){
+    document.getElementById(id).textContent = String(value).padStart(2,"0");
   }
-
-  days.textContent = String(Math.floor(difference / 86400000)).padStart(2, "0");
-  hours.textContent = String(Math.floor((difference / 3600000) % 24)).padStart(2, "0");
-  minutes.textContent = String(Math.floor((difference / 60000) % 60)).padStart(2, "0");
-  seconds.textContent = String(Math.floor((difference / 1000) % 60)).padStart(2, "0");
 }
-
-setInterval(updateCountdown, 1000);
 updateCountdown();
-
-function observeSections() {
-  const items = document.querySelectorAll(".reveal");
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add("visible");
-    });
-  }, { threshold: 0.12 });
-
-  items.forEach(item => observer.observe(item));
-}
+setInterval(updateCountdown,1000);

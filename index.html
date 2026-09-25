@@ -3,93 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f8dfe6">
-  <meta name="description" content="Invitación digital de Baby Shower">
-  <title>Baby Shower | Una dulce espera</title>
+  <meta name="theme-color" content="#d9c8a5">
+  <title>Baby Shower · Gael Santander Vallejo</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="hearts" aria-hidden="true"><span>♡</span><span>♡</span><span>♡</span></div>
-
   <main>
-    <section class="hero" id="inicio">
-      <div class="hero-card">
-        <p class="eyebrow">UNA DULCE ESPERA</p>
-        <div class="teddy" aria-hidden="true">🧸</div>
-        <h1>Baby<br><em>Shower</em></h1>
-        <p class="intro">Estamos felices de compartir contigo la llegada de nuestro bebé.</p>
-        <button class="primary-btn" id="openInvite">Abrir invitación</button>
+    <section class="cover" id="cover">
+      <div class="decor decor-1">✦</div>
+      <div class="decor decor-2">♡</div>
+      <div class="cover-content">
+        <p class="eyebrow">Una dulce sorpresa</p>
+        <h1>está por llegar...</h1>
+        <div class="envelope-wrap">
+          <div class="envelope" id="envelope">
+            <div class="flap"></div>
+            <div class="seal">♡</div>
+            <div class="letter">
+              <p class="small">BABY</p>
+              <p class="script">Shower</p>
+              <strong>Gael</strong>
+              <span>Santander Vallejo</span>
+            </div>
+          </div>
+        </div>
+        <p class="hint">Abre el sobre para descubrir la invitación</p>
+        <button class="open-btn" id="openBtn">♡ &nbsp; Abrir invitación &nbsp; ♡</button>
       </div>
     </section>
 
-    <div id="invitation" class="hidden">
-      <section class="section welcome reveal">
-        <p class="eyebrow">CON MUCHO AMOR</p>
-        <h2>¡Queremos celebrarlo contigo!</h2>
-        <p>Hay momentos que merecen ser compartidos. Acompáñanos a celebrar esta nueva etapa y a darle la bienvenida a nuestro pequeño gran amor.</p>
-      </section>
+    <section class="invitation" id="invitation">
+      <div class="card">
+        <p class="eyebrow">Con mucha ilusión te invitamos a celebrar</p>
+        <div class="bear">🧸</div>
+        <h2>Baby <span>Shower</span></h2>
+        <p class="intro">La llegada de nuestro pequeño</p>
+        <h3>Gael Santander Vallejo</h3>
+        <p class="parents">Kevin Santander &amp; Darlin Vallejo</p>
 
-      <section class="details section reveal">
-        <div class="detail-card">
-          <div class="icon">📅</div>
-          <h3>Fecha</h3>
-          <p>25 de octubre de 2026</p>
+        <div class="date-grid">
+          <div><b>11</b><span>OCTUBRE</span></div>
+          <div class="divider"></div>
+          <div><b>2:00</b><span>PM</span></div>
         </div>
-        <div class="detail-card">
-          <div class="icon">⏰</div>
-          <h3>Hora</h3>
-          <p>4:00 PM</p>
+
+        <p class="location-title">📍 Nos encontramos en</p>
+        <p class="location">Salón Comunal Chambú 2.ª Etapa</p>
+        <a class="map-btn" target="_blank" rel="noopener"
+           href="https://www.google.com/maps/search/?api=1&query=Salon+Comunal+Chambu+2+Etapa+Pasto+Narino">
+          Ver ubicación en Google Maps
+        </a>
+
+        <div class="countdown-title">Falta muy poquito...</div>
+        <div class="countdown" id="countdown">
+          <div><b id="days">00</b><span>DÍAS</span></div>
+          <div><b id="hours">00</b><span>HORAS</span></div>
+          <div><b id="minutes">00</b><span>MIN</span></div>
+          <div><b id="seconds">00</b><span>SEG</span></div>
         </div>
-        <div class="detail-card">
-          <div class="icon">📍</div>
-          <h3>Lugar</h3>
-          <p>Nombre del lugar<br>Pasto, Nariño</p>
+
+        <div class="ultrasound">
+          <p>Un pequeño vistazo de nuestro amor 💛</p>
+          <img src="assets/invitacion-gael.png" alt="Diseño de la invitación de Gael">
         </div>
-      </section>
 
-      <section class="countdown section reveal">
-        <p class="eyebrow">FALTA MUY POQUITO</p>
-        <h2>Cuenta regresiva</h2>
-        <div class="timer">
-          <div><strong id="days">00</strong><span>Días</span></div>
-          <div><strong id="hours">00</strong><span>Horas</span></div>
-          <div><strong id="minutes">00</strong><span>Minutos</span></div>
-          <div><strong id="seconds">00</strong><span>Segundos</span></div>
+        <div class="rsvp">
+          <h4>¿Nos acompañas?</h4>
+          <p>Confirma tu asistencia por WhatsApp.</p>
+          <a class="whatsapp" target="_blank" rel="noopener"
+             href="https://wa.me/573233724654?text=Hola%20Kevin%20y%20Darlin%2C%20confirmo%20mi%20asistencia%20al%20Baby%20Shower%20de%20Gael.%20%F0%9F%92%9B">
+            Confirmar asistencia
+          </a>
         </div>
-      </section>
 
-      <section class="message section reveal">
-        <div class="quote">“</div>
-        <p>Un pequeño milagro está creciendo y queremos vivir este momento rodeados de las personas que más queremos.</p>
-        <div class="quote">”</div>
-      </section>
-
-      <section class="actions section reveal">
-        <a class="primary-btn" href="https://wa.me/573000000000?text=Hola%2C%20confirmo%20mi%20asistencia%20al%20Baby%20Shower%20%F0%9F%8C%B8%F0%9F%91%B6" target="_blank" rel="noopener">💌 Confirmar asistencia</a>
-        <a class="secondary-btn" href="https://www.google.com/maps" target="_blank" rel="noopener">📍 Ver ubicación</a>
-      </section>
-
-      <section class="gift section reveal">
-        <div class="gift-icon">🎁</div>
-        <p class="eyebrow">UN DETALLE CON AMOR</p>
-        <h2>Lista de regalos</h2>
-        <p>Tu presencia es nuestro mejor regalo. Si deseas tener un detalle con el bebé, aquí encontrarás nuestra lista.</p>
-        <a class="secondary-btn" href="#" onclick="alert('Reemplaza este enlace por tu lista de regalos.'); return false;">Ver lista de regalos</a>
-      </section>
-
-      <section class="closing section reveal">
-        <div class="cloud">☁️</div>
-        <h2>¡Te esperamos!</h2>
-        <p>Con cariño,<br><strong>Los futuros papás</strong></p>
-        <p class="small">Gracias por ser parte de este momento tan especial. ♡</p>
-      </section>
-    </div>
+        <p class="closing">Gracias por acompañarnos en este momento tan especial. ✨</p>
+      </div>
+    </section>
   </main>
-
-  <footer>Hecho con ♡ para una celebración muy especial</footer>
   <script src="script.js"></script>
 </body>
 </html>
