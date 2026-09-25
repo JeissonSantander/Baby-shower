@@ -1,13 +1,24 @@
-# Invitación Baby Shower — Gael Santander Vallejo
+# Baby Shower Gael — GitHub Pages
 
-Sitio web estático listo para GitHub Pages.
+Invitación web estática para GitHub Pages.
 
-Datos:
+## Datos
 - Bebé: Gael Santander Vallejo
-- Padres: Kevin Santander y Darlin Vallejo
+- Papá: Kevin Santander
+- Mamá: Darlin Vallejo
 - Fecha: 11 de octubre de 2026
 - Hora: 2:00 PM
 - Lugar: Salón Comunal Chambú 2.ª Etapa
 - WhatsApp: 323 372 4654
 
-No requiere Node.js ni base de datos. Sube todos los archivos conservando la carpeta `assets`.
+## Estructura
+- `index.html` — invitación y galería de ecografías
+- `styles.css` — diseño responsive
+- `script.js` — apertura del sobre y contador
+- `assets/invitacion-gael.png` — imagen decorativa
+- `assets/ecografia-1.jpg` — ecografía
+- `assets/ecografia-2.jpg` — ecografía
+- `.nojekyll` — configuración para GitHub Pages
+
+## Publicar
+Sube todos los archivos y la carpeta `assets` al repositorio. En GitHub Pages usa la rama `main` y la carpeta `/ (root)`.
