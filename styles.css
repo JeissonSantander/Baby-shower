@@ -710,7 +710,7 @@ body {
   margin: 0 auto;
   background: #fffefb;
   border-radius: var(--radius-card);
-  padding: clamp(30px, 6vw, 55px) clamp(20px, 5vw, 42px);
+  padding: clamp(42px, 6vw, 55px) clamp(24px, 5vw, 42px);
   box-shadow: var(--shadow-luxury);
   border: 1px solid #ebd9bd;
   position: relative;
@@ -739,6 +739,9 @@ body {
   position: absolute;
   width: 24px;
   height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--accent-gold);
   font-size: 1.2rem;
   opacity: 0.6;
@@ -753,11 +756,14 @@ body {
 .card-welcome {
   font-family: var(--font-sans);
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   font-size: 0.78rem;
   font-weight: 600;
   color: var(--accent-gold-dark);
-  margin-bottom: 6px;
+  margin: 0 auto 8px;
+  max-width: 88%;
+  padding: 0 16px;
+  line-height: 1.45;
 }
 
 .card-main-title {
@@ -1531,7 +1537,7 @@ body {
   }
 
   .invitation-card {
-    padding: 32px 18px;
+    padding: 38px 20px 32px;
   }
 
   .card-main-title .serif-part {
@@ -1701,19 +1707,32 @@ body {
 
   /* Invitation card */
   .invitation-card {
-    padding: 24px 14px 28px;
+    padding: 42px 18px 28px;
     border-radius: 18px;
   }
 
   .card-frame { inset: 8px; }
   .card-frame-inner { inset: 12px; }
-  .corner-ornament { font-size: 0.9rem; }
-  .corner-tl, .corner-bl { left: 12px; }
-  .corner-tr, .corner-br { right: 12px; }
+  .corner-ornament { 
+    font-size: 0.85rem; 
+    width: 20px; 
+    height: 20px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .corner-tl { top: 12px; left: 12px; }
+  .corner-tr { top: 12px; right: 12px; }
+  .corner-bl { bottom: 12px; left: 12px; }
+  .corner-br { bottom: 12px; right: 12px; }
 
   .card-welcome {
-    font-size: 0.72rem;
-    letter-spacing: 1.5px;
+    font-size: 0.68rem;
+    letter-spacing: 1.2px;
+    padding: 0 14px;
+    max-width: 90%;
+    margin: 0 auto 8px;
+    line-height: 1.45;
   }
 
   .card-main-title .serif-part {
@@ -1947,4 +1966,15 @@ body {
 
   .card-main-title .serif-part { font-size: 2rem; }
   .card-main-title .script-part { font-size: 2.8rem; }
+
+  .invitation-card {
+    padding: 38px 14px 24px;
+  }
+
+  .card-welcome {
+    font-size: 0.64rem;
+    letter-spacing: 0.8px;
+    padding: 0 10px;
+    max-width: 92%;
+  }
 }
