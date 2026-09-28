@@ -249,7 +249,7 @@ function burstConfetti() {
    4. COUNTDOWN TIMER
    -------------------------------------------------------------------------- */
 (function initCountdown() {
-  const targetMs = new Date("2026-10-11T14:00:00-05:00").getTime();
+  const targetMs = new Date("2026-10-18T14:00:00-05:00").getTime();
   const els = {
     days:    document.getElementById("days"),
     hours:   document.getElementById("hours"),
@@ -688,7 +688,7 @@ function burstConfetti() {
 
   const shareData = {
     title: "Baby Shower · Gael Santander Vallejo",
-    text:  "¡Estás invitado al Baby Shower de Gael! 🧸💛 11 de Octubre · 2:00 PM · Salón Chambú, Pasto",
+    text:  "¡Estás invitado al Baby Shower de Gael! 🧸💛 18 de Octubre · 2:00 PM · Salón Chambú, Pasto",
     url:   window.location.href,
   };
 

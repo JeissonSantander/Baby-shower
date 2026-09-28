@@ -6,7 +6,7 @@ Invitación web estática para GitHub Pages.
 - Bebé: Gael Santander Vallejo
 - Papá: Kevin Santander
 - Mamá: Darlin Vallejo
-- Fecha: 11 de octubre de 2026
+- Fecha: 18 de octubre de 2026
 - Hora: 2:00 PM
 - Lugar: Salón Comunal Chambú 2.ª Etapa
 - WhatsApp: 323 372 4654
